@@ -1,14 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getWorkBySlug, getWorks } from "@/lib/notion";
+import { getWorkBySlug } from "@/lib/notion";
 import CopyLinkButton from "@/components/CopyLinkButton";
 
 export const revalidate = 60;
-
-export async function generateStaticParams() {
-  const works = await getWorks();
-  return works.map((w) => ({ slug: encodeURIComponent(w.slug) }));
-}
 
 type Props = { params: Promise<{ slug: string }> };
 
