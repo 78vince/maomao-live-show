@@ -7,14 +7,15 @@ export const revalidate = 60;
 
 export async function generateStaticParams() {
   const works = await getWorks();
-  return works.map((w) => ({ slug: w.slug }));
+  return works.map((w) => ({ slug: encodeURIComponent(w.slug) }));
 }
 
 type Props = { params: Promise<{ slug: string }> };
 
 export default async function WorkDetailPage({ params }: Props) {
   const { slug } = await params;
-  const work = await getWorkBySlug(slug);
+  const decodedSlug = decodeURIComponent(slug);
+  const work = await getWorkBySlug(decodedSlug);
 
   if (!work) notFound();
 
