@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getWorkBySlug } from "@/lib/notion";
+import { getWorkBySlug, getWorks } from "@/lib/notion";
 import CopyLinkButton from "@/components/CopyLinkButton";
 
 export const revalidate = 60;
@@ -10,12 +10,24 @@ type Props = { params: Promise<{ slug: string }> };
 export default async function WorkDetailPage({ params }: Props) {
   const { slug } = await params;
   const decodedSlug = decodeURIComponent(slug);
-  const work = await getWorkBySlug(decodedSlug);
+
+  const [work, allWorks] = await Promise.all([
+    getWorkBySlug(decodedSlug),
+    getWorks(),
+  ]);
 
   if (!work) notFound();
 
+  const currentIndex = allWorks.findIndex((w) => w.slug === work.slug);
+  const prevWork = currentIndex > 0 ? allWorks[currentIndex - 1] : null;
+  const nextWork = currentIndex < allWorks.length - 1 ? allWorks[currentIndex + 1] : null;
+
   const shareUrl = `https://maomao-live-show.vercel.app/works/${encodeURIComponent(work.slug)}`;
   const shareText = encodeURIComponent(`${work.title} — 貓貓 Live Show`);
+
+  const tags = work.tags
+    ? work.tags.split(",").map((t) => t.trim()).filter(Boolean)
+    : [];
 
   return (
     <article className="max-w-6xl mx-auto px-6 py-12">
@@ -54,16 +66,30 @@ export default async function WorkDetailPage({ params }: Props) {
       {/* Info */}
       <div className="flex items-start justify-between gap-4 mb-6">
         <div>
+          {/* Category above title */}
+          {work.category && (
+            <span className="text-sm text-[var(--color-muted)] mb-1 block">
+              {work.category}
+            </span>
+          )}
           <h1
             className="font-display text-[var(--color-dark)] leading-tight"
             style={{ fontSize: 36, WebkitTextStroke: "0.7px currentColor" }}
           >
             {work.title}
           </h1>
-          {work.category && (
-            <span className="text-sm text-[var(--color-muted)] mt-1 block">
-              {work.category}
-            </span>
+          {/* Tags below title */}
+          {tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 mt-3">
+              {tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs px-3 py-1 rounded-full bg-[var(--color-card)] text-[var(--color-muted)]"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           )}
         </div>
 
@@ -111,23 +137,45 @@ export default async function WorkDetailPage({ params }: Props) {
       </div>
 
       {work.description && (
-        <p className="text-[var(--color-dark)] leading-relaxed text-base">
+        <p className="text-[var(--color-dark)] leading-relaxed text-base mt-2">
           {work.description}
         </p>
       )}
 
-      {work.tags && (
-        <div className="flex flex-wrap gap-2 mt-6">
-          {work.tags.split(",").map((tag) => tag.trim()).filter(Boolean).map((tag) => (
-            <span
-              key={tag}
-              className="text-xs px-3 py-1 rounded-full bg-[var(--color-card)] text-[var(--color-muted)]"
-            >
-              {tag}
+      {/* Prev / Next navigation */}
+      <nav className="mt-16 pt-8 border-t border-[var(--color-border)] flex items-stretch justify-between gap-4">
+        {prevWork ? (
+          <Link
+            href={`/works/${encodeURIComponent(prevWork.slug)}`}
+            className="group flex flex-col gap-1 max-w-[45%]"
+          >
+            <span className="text-xs text-[var(--color-muted)] group-hover:text-[var(--color-brown)] transition-colors">
+              ← 上一件
             </span>
-          ))}
-        </div>
-      )}
+            <span className="text-sm font-medium text-[var(--color-dark)] group-hover:text-[var(--color-brown)] transition-colors line-clamp-1">
+              {prevWork.title}
+            </span>
+          </Link>
+        ) : (
+          <div />
+        )}
+
+        {nextWork ? (
+          <Link
+            href={`/works/${encodeURIComponent(nextWork.slug)}`}
+            className="group flex flex-col gap-1 items-end text-right max-w-[45%]"
+          >
+            <span className="text-xs text-[var(--color-muted)] group-hover:text-[var(--color-brown)] transition-colors">
+              下一件 →
+            </span>
+            <span className="text-sm font-medium text-[var(--color-dark)] group-hover:text-[var(--color-brown)] transition-colors line-clamp-1">
+              {nextWork.title}
+            </span>
+          </Link>
+        ) : (
+          <div />
+        )}
+      </nav>
     </article>
   );
 }
