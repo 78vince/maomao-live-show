@@ -16,8 +16,9 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-[var(--color-cream)] border-b border-[var(--color-border)]">
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="font-display text-xl text-stroke-xs text-[var(--color-dark)] hover:text-[var(--color-brown)] transition-colors">
-          貓貓 Live Show
+        <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.svg" alt="貓貓 Live Show" className="h-8 w-auto" />
         </Link>
         <ul className="flex items-center gap-6">
           {navLinks.map((link) => (
