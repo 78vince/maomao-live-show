@@ -24,7 +24,7 @@ export default function HeroCarousel() {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden" style={{ height: 850 }}>
+    <div className="relative w-full overflow-hidden h-[450px] md:h-[850px]">
       {IMAGES.map((src, i) => (
         <div
           key={src}
@@ -36,13 +36,13 @@ export default function HeroCarousel() {
         </div>
       ))}
 
-      {/* Logo — same width as navbar content (max-w-6xl) */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      {/* Logo — half width of navbar, top-aligned with 100px padding */}
+      <div className="absolute inset-0 flex items-start justify-center pt-[100px] pointer-events-none">
         <div className="w-full max-w-6xl mx-auto px-6">
           <svg
             viewBox="0 0 534 200"
             xmlns="http://www.w3.org/2000/svg"
-            style={{ width: "100%", height: "auto" }}
+            style={{ width: "50%", height: "auto" }}
           >
             <g transform="matrix(1,0,0,1,-6560.000159,-402.304027)">
               {/* Text paths */}

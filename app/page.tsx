@@ -78,7 +78,7 @@ export default async function HomePage() {
       {/* Bento 九宮格 */}
       {bentoWorks.length > 0 && (
         <section className="max-w-6xl mx-auto px-6 py-16">
-          <div className="grid grid-cols-3 gap-0">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
             {bentoWorks.map((work) => (
               <Link
                 key={work.id}
@@ -126,7 +126,7 @@ export default async function HomePage() {
       {/* 商品預覽 */}
       {featuredProducts.length > 0 && (
         <section className="max-w-6xl mx-auto px-6 pb-20">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {featuredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
