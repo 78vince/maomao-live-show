@@ -133,16 +133,14 @@ export default async function HomePage() {
             {/* 貓貓雜貨鋪 link card */}
             <Link
               href="/shop"
-              className="bg-[var(--color-card)] rounded-[28px] flex flex-col items-center justify-center p-6 group"
+              className="rounded-[28px] flex flex-col items-center justify-center p-6 group hover:opacity-90 transition-opacity"
+              style={{ backgroundColor: "var(--color-brown)" }}
             >
               <span
-                className="font-display text-xl text-[var(--color-brown)] group-hover:opacity-80 transition-opacity text-center"
+                className="font-display text-xl text-white text-center"
                 style={{ WebkitTextStroke: "0.5px currentColor" }}
               >
                 貓貓雜貨鋪
-              </span>
-              <span className="text-[var(--color-muted)] mt-2 text-sm group-hover:text-[var(--color-brown)] transition-colors">
-                →
               </span>
             </Link>
           </div>

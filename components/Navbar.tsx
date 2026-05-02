@@ -28,8 +28,11 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-cream)] border-b border-[var(--color-border)] transition-transform duration-300"
-      style={{ transform: visible ? "translateY(0)" : "translateY(-100%)" }}
+      className="fixed top-0 left-0 right-0 z-50 border-b border-[var(--color-border)] backdrop-blur-md transition-transform duration-300"
+      style={{
+        backgroundColor: "rgba(250, 247, 242, 0.5)",
+        transform: visible ? "translateY(0)" : "translateY(-100%)",
+      }}
     >
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link
