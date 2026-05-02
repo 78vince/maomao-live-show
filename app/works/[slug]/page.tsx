@@ -36,7 +36,7 @@ export default async function WorkDetailPage({ params }: Props) {
       <nav className="flex items-center gap-1.5 text-sm text-[var(--color-muted)] mb-4">
         <Link href="/" className="hover:text-[var(--color-brown)] transition-colors">首頁</Link>
         <span>/</span>
-        <Link href="/works" className="hover:text-[var(--color-brown)] transition-colors">作品集</Link>
+        <Link href="/works" className="hover:text-[var(--color-brown)] transition-colors">貓貓日常</Link>
         <span>/</span>
         <span className="text-[var(--color-dark)] truncate max-w-[200px]">{work.title}</span>
       </nav>

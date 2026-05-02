@@ -12,7 +12,7 @@ export default async function WorksPage() {
         className="font-display text-[var(--color-dark)] mb-10"
         style={{ fontSize: 48, WebkitTextStroke: "0.9px currentColor" }}
       >
-        作品集
+        貓貓日常
       </h1>
 
       {works.length === 0 ? (

@@ -17,6 +17,8 @@ export default function RootLayout({
     <html lang="zh-TW" className="h-full">
       <body className="min-h-full flex flex-col">
           <Navbar />
+          {/* spacer for fixed navbar — homepage hero cancels this with -mt-16 */}
+          <div className="h-16 shrink-0" aria-hidden="true" />
           <main className="flex-1">{children}</main>
           <Footer />
         </body>
