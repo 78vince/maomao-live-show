@@ -18,11 +18,11 @@ export default async function WorksPage() {
       {works.length === 0 ? (
         <p className="text-[var(--color-muted)]">作品準備中 🐱</p>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-0">
           {works.map((work) => (
             <Link
               key={work.id}
-              href={`/works/${work.slug}`}
+              href={`/works/${encodeURIComponent(work.slug)}`}
               className="group relative aspect-square rounded-[28px] overflow-hidden block"
               style={{ backgroundColor: work.placeholderColor }}
             >

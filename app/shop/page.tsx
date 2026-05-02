@@ -11,7 +11,7 @@ export default async function ShopPage() {
         className="font-display text-[var(--color-dark)] mb-10"
         style={{ fontSize: 48, WebkitTextStroke: "0.9px currentColor" }}
       >
-        選物商店
+        貓貓雜貨鋪
       </h1>
 
       {products.length === 0 ? (
