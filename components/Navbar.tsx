@@ -28,16 +28,16 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 border-b border-[var(--color-border)] backdrop-blur-md transition-transform duration-300"
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-transform duration-300"
       style={{
-        backgroundColor: "rgba(250, 247, 242, 0.5)",
+        backgroundColor: "rgba(116, 80, 35, 0.92)",
         transform: visible ? "translateY(0)" : "translateY(-100%)",
       }}
     >
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link
           href="/"
-          className="flex items-center gap-3 text-[var(--color-dark)] hover:text-[var(--color-brown)] transition-colors"
+          className="flex items-center gap-3 text-[var(--color-yellow)] hover:text-[var(--color-cream)] transition-colors"
         >
           <svg height="32" viewBox="0 0 534 138" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style={{ width: "auto" }}>
             <g transform="matrix(1,0,0,1,-6560.000159,-402.304027)">
@@ -76,10 +76,10 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-[var(--color-brown)] ${
+                className={`text-sm font-medium transition-colors hover:text-[var(--color-cream)] ${
                   pathname === link.href
-                    ? "text-[var(--color-brown)]"
-                    : "text-[var(--color-muted)]"
+                    ? "text-[var(--color-cream)]"
+                    : "text-[var(--color-yellow)]"
                 }`}
               >
                 {link.label}

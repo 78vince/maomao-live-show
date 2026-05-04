@@ -7,14 +7,14 @@ export default function Footer() {
         </p>
         <div className="flex items-center gap-5">
           {/* Facebook */}
-          <a href="https://www.facebook.com/LiStudio.art" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+          <a href="https://www.facebook.com/MaomaoLiveShow/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
             className="text-[var(--color-muted)] hover:text-[var(--color-brown)] transition-colors">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
               <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
             </svg>
           </a>
           {/* Instagram */}
-          <a href="https://www.instagram.com/li_studio_art" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+          <a href="https://www.instagram.com/maomao_live_show/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
             className="text-[var(--color-muted)] hover:text-[var(--color-brown)] transition-colors">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
