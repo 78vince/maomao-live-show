@@ -106,17 +106,17 @@ export default async function HomePage() {
               </Link>
             ))}
 
-            {/* 看其他日常 */}
+            {/* 貓貓日常 */}
             <Link
               href="/works"
-              className="aspect-square rounded-[28px] flex flex-col items-center justify-center group"
+              className="aspect-square rounded-[28px] flex flex-col items-center justify-center hover:opacity-90 transition-opacity"
               style={{ backgroundColor: "var(--color-brown)" }}
             >
               <span
-                className="font-display text-2xl text-white group-hover:opacity-80 transition-opacity"
+                className="font-display text-2xl text-white"
                 style={{ WebkitTextStroke: "0.5px currentColor" }}
               >
-                看其他日常
+                貓貓日常
               </span>
             </Link>
           </div>
@@ -130,17 +130,17 @@ export default async function HomePage() {
             {featuredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
-            {/* 貓貓雜貨鋪 link card */}
+            {/* 貓貓雜貨舖 link card */}
             <Link
               href="/shop"
-              className="rounded-[28px] flex flex-col items-center justify-center p-6 group hover:opacity-90 transition-opacity"
+              className="rounded-[28px] flex flex-col items-center justify-center p-6 hover:opacity-90 transition-opacity"
               style={{ backgroundColor: "var(--color-brown)" }}
             >
               <span
                 className="font-display text-xl text-white text-center"
                 style={{ WebkitTextStroke: "0.5px currentColor" }}
               >
-                貓貓雜貨鋪
+                貓貓雜貨舖
               </span>
             </Link>
           </div>

@@ -105,8 +105,8 @@ export default async function WorkDetailPage({ params }: Props) {
             </span>
           )}
           <h1
-            className="font-display text-[var(--color-dark)] leading-tight"
-            style={{ fontSize: 36, WebkitTextStroke: "0.7px currentColor" }}
+            className="font-display leading-tight"
+            style={{ fontSize: 36, WebkitTextStroke: "0.7px currentColor", color: "var(--color-title)" }}
           >
             {work.title}
           </h1>

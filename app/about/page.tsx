@@ -1,9 +1,9 @@
 export default function AboutPage() {
   return (
-    <section className="max-w-2xl mx-auto px-6 py-12">
+    <section className="max-w-6xl mx-auto px-6 py-12">
       <h1
-        className="font-display text-[var(--color-dark)] mb-8"
-        style={{ fontSize: 48, WebkitTextStroke: "0.9px currentColor" }}
+        className="font-display mb-8"
+        style={{ fontSize: 48, WebkitTextStroke: "0.9px currentColor", color: "var(--color-title)" }}
       >
         關於
       </h1>

@@ -9,9 +9,9 @@ export default async function ShopPage() {
     <section className="max-w-6xl mx-auto px-6 py-12">
       <h1
         className="font-display text-[var(--color-dark)] mb-10"
-        style={{ fontSize: 48, WebkitTextStroke: "0.9px currentColor" }}
+        style={{ fontSize: 48, WebkitTextStroke: "0.9px currentColor", color: "var(--color-title)" }}
       >
-        貓貓雜貨鋪
+        貓貓雜貨舖
       </h1>
 
       {products.length === 0 ? (
