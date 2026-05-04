@@ -37,7 +37,7 @@ export default function Navbar() {
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link
           href="/"
-          className="flex items-center gap-3 text-[var(--color-yellow)] hover:text-[var(--color-cream)] transition-colors"
+          className="flex items-center gap-3 text-[var(--color-cream)] hover:text-white transition-colors"
         >
           <svg height="32" viewBox="0 0 534 138" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style={{ width: "auto" }}>
             <g transform="matrix(1,0,0,1,-6560.000159,-402.304027)">
@@ -76,10 +76,10 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-[var(--color-cream)] ${
+                className={`text-sm font-medium transition-colors hover:text-white ${
                   pathname === link.href
-                    ? "text-[var(--color-cream)]"
-                    : "text-[var(--color-yellow)]"
+                    ? "text-white"
+                    : "text-[var(--color-cream)]"
                 }`}
               >
                 {link.label}
