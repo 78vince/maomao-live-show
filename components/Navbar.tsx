@@ -78,7 +78,7 @@ export default function Navbar() {
                 href={link.href}
                 className={`text-sm font-medium transition-colors hover:text-white ${
                   pathname === link.href
-                    ? "text-white"
+                    ? "text-white underline underline-offset-4"
                     : "text-[var(--color-cream)]"
                 }`}
               >
