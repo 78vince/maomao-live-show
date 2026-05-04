@@ -37,7 +37,7 @@ export default function HeroCarousel() {
       ))}
 
       {/* Logo — half width of navbar, bottom-right with 100px padding */}
-      <div className="absolute inset-0 flex items-end justify-end pb-[100px] pointer-events-none">
+      <div className="absolute inset-0 flex items-end justify-end pb-[50px] pointer-events-none">
         <div className="w-full max-w-6xl mx-auto px-6 flex justify-end">
           <svg
             viewBox="0 0 534 200"

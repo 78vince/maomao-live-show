@@ -8,7 +8,7 @@ const navLinks = [
   { href: "/", label: "首頁" },
   { href: "/works", label: "貓貓日常" },
   { href: "/shop", label: "貓貓雜貨舖" },
-  { href: "/about", label: "關於" },
+  { href: "/about", label: "關於貓秀" },
 ];
 
 export default function Navbar() {
