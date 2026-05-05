@@ -75,6 +75,37 @@ export default async function HomePage() {
         <HeroCarousel />
       </section>
 
+      {/* 頁面導覽按鈕 */}
+      <section className="max-w-6xl mx-auto px-6 py-10">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {[
+            { href: "/works",  label: "貓貓日常",  bg: "/nav-daily.png" },
+            { href: "/shop",   label: "貓貓雜貨舖", bg: "/nav-shop.jpg" },
+            { href: "/about",  label: "關於貓秀",  bg: "/maomao.jpg" },
+          ].map(({ href, label, bg }) => (
+            <Link
+              key={href}
+              href={href}
+              className="relative overflow-hidden rounded-[28px] h-24 flex items-center justify-center group"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={bg}
+                alt={label}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
+              <span
+                className="relative font-display text-white text-xl"
+                style={{ WebkitTextStroke: "0.5px currentColor" }}
+              >
+                {label}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* Bento 九宮格 */}
       {bentoWorks.length > 0 && (
         <section className="max-w-6xl mx-auto px-6 py-16">
