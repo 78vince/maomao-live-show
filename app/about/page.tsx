@@ -8,6 +8,16 @@ export default function AboutPage() {
         關於貓秀
       </h1>
 
+      <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-10 items-start">
+        <div className="rounded-[40px] overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/maomao.jpg"
+            alt="貓貓"
+            className="w-full h-auto object-cover"
+          />
+        </div>
+
       <div className="space-y-6 text-base text-[var(--color-dark)] leading-relaxed">
         <p>
           許多年前，我們遇見了一位街頭的流浪靈魂。他是一隻在街頭生存的貓，帶著兩顆斷掉的虎牙、微缺一角的耳朵，以及醫生口中那些因為打架而留下的傷痕。不忍心看他繼續在街頭過著驚險的日子，我們決定將他帶回家，並喚他為「貓貓」。
@@ -72,6 +82,7 @@ export default function AboutPage() {
             </a>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
