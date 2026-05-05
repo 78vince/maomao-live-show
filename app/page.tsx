@@ -86,7 +86,7 @@ export default async function HomePage() {
             <Link
               key={href}
               href={href}
-              className="relative overflow-hidden rounded-[999px] h-36 flex items-center justify-center group"
+              className="relative overflow-hidden rounded-[999px] h-[160px] flex items-center justify-center group"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
