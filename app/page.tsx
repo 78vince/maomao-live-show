@@ -83,21 +83,18 @@ export default async function HomePage() {
             { href: "/shop",   label: "貓貓雜貨舖", bg: "/nav-shop.jpg" },
             { href: "/about",  label: "關於貓秀",  bg: "/maomao.jpg" },
           ].map(({ href, label, bg }) => (
-            <Link
-              key={href}
-              href={href}
-              className="relative overflow-hidden rounded-[999px] h-[160px] flex items-center justify-center group"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={bg}
-                alt={label}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
+            <Link key={href} href={href} className="flex flex-col items-center gap-3 group">
+              <div className="relative w-full overflow-hidden rounded-[999px] h-[160px]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={bg}
+                  alt={label}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
               <span
-                className="relative font-display text-white text-3xl"
-                style={{ WebkitTextStroke: "0.5px currentColor" }}
+                className="font-display text-xl"
+                style={{ color: "var(--color-brown)", WebkitTextStroke: "0.5px currentColor" }}
               >
                 {label}
               </span>
