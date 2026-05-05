@@ -86,7 +86,7 @@ export default async function HomePage() {
             <Link
               key={href}
               href={href}
-              className="relative overflow-hidden rounded-[28px] h-24 flex items-center justify-center group"
+              className="relative overflow-hidden rounded-[999px] h-36 flex items-center justify-center group"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -96,7 +96,7 @@ export default async function HomePage() {
               />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
               <span
-                className="relative font-display text-white text-xl"
+                className="relative font-display text-white text-3xl"
                 style={{ WebkitTextStroke: "0.5px currentColor" }}
               >
                 {label}
