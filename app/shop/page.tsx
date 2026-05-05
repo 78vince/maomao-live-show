@@ -56,7 +56,7 @@ export default async function ShopPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex-1 text-center text-sm font-medium text-white py-2.5 px-3 rounded-full transition-opacity hover:opacity-85"
-                      style={{ backgroundColor: "var(--color-coral)" }}
+                      style={{ backgroundColor: "var(--color-shopee)" }}
                     >
                       Shopee
                     </a>
@@ -67,7 +67,7 @@ export default async function ShopPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex-1 text-center text-sm font-medium text-white py-2.5 px-3 rounded-full transition-opacity hover:opacity-85"
-                      style={{ backgroundColor: "var(--color-coral)" }}
+                      style={{ backgroundColor: "var(--color-pinkoi)" }}
                     >
                       Pinkoi
                     </a>
