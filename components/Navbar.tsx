@@ -15,6 +15,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     if (!isHome) return;
@@ -23,6 +24,11 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [isHome]);
+
+  // 切換頁面時關閉選單
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   const visible = !isHome || scrolled;
 
@@ -71,7 +77,8 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <ul className="flex items-center gap-6">
+        {/* 桌面版選單 */}
+        <ul className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
@@ -87,7 +94,49 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
+
+        {/* 手機版漢堡按鈕 */}
+        <button
+          className="md:hidden text-[var(--color-cream)] hover:text-white transition-colors p-1"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label={menuOpen ? "關閉選單" : "開啟選單"}
+        >
+          {menuOpen ? (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
+        </button>
       </nav>
+
+      {/* 手機版展開選單 */}
+      {menuOpen && (
+        <div
+          className="md:hidden border-t border-white/10"
+          style={{ backgroundColor: "rgba(116, 80, 35, 0.97)" }}
+        >
+          <ul className="flex flex-col px-6 py-4 gap-1">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={`block py-3 text-base font-medium transition-colors hover:text-white ${
+                    pathname === link.href
+                      ? "text-white underline underline-offset-4"
+                      : "text-[var(--color-cream)]"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </header>
   );
 }
